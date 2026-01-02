@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    command: npm run api
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+      - elasticmq
+    ports:
+      - "3000:3000"
+
+  worker:
+    build: .
+    command: npm run worker
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+      - elasticmq
+
+  mongo:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+
+  elasticmq:
+    image: softwaremill/elasticmq-native:1.6.8
+    ports:
+      - "9324:9324"
+    volumes:
+      - ./src/config/elasticmq.conf:/opt/elasticmq.conf
+    command: >
+      -Dconfig.file=/opt/elasticmq.conf

@@ -1,0 +1,130 @@
+{
+  "extends": [
+    "standard",
+    "eslint:recommended",
+    "airbnb-base",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "root": true,
+  "globals": {},
+  "rules": {
+    "consistent-return": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-shadow": "off",
+    "no-underscore-dangle": "off",
+    "import/extensions": "off",
+    "import/no-cycle": [
+      0,
+      {
+        "ignoreExternal": true
+      }
+    ],
+    "max-classes-per-file": [
+      "error",
+      3
+    ],
+    "camelcase": "off",
+    "class-methods-use-this": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "import/no-unresolved": [
+      2,
+      {
+        "commonjs": true,
+        "amd": true
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "_"
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "max-len": [
+      "error",
+      {
+        "code": 150,
+        "ignoreComments": true,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ]
+  },
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "commonjs": true,
+    "es2021": true,
+    "node": true
+  },
+  "overrides": [],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".ts"
+        ],
+        "moduleDirectory": [
+          "node_modules",
+          "src/"
+        ]
+      },
+      "alias": {
+        "map": [
+          [
+            "@src",
+            "./src"
+          ],
+          [
+            "@functions",
+            "./src/functions"
+          ],
+          [
+            "@libs",
+            "./src/libs"
+          ],
+          [
+            "@schemas",
+            "./src/schemas"
+          ],
+          [
+            "@apis",
+            "./src/apis"
+          ],
+          [
+            "@constants",
+            "./src/constants"
+          ],
+          [
+            "@libs",
+            "./src/libs"
+          ],
+          [
+            "@middlewares",
+            "./src/middlewares"
+          ]
+        ],
+        "extensions": [
+          ".ts",
+          ".js"
+        ]
+      }
+    }
+  }
+}

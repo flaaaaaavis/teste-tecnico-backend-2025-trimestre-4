@@ -1,0 +1,53 @@
+{
+  "extends": "./tsconfig.paths.json",
+  "compilerOptions": {
+    "lib": [
+      "ESNext",
+      "ES5",
+      "ES6",
+      "DOM"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "ES2020",
+    "outDir": "dist",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@functions/*": [
+        "src/functions/*"
+      ],
+      "@schemas/*": [
+        "src/schemas/*"
+      ],
+      "@constants/*": [
+        "src/constants/*"
+      ],
+      "@apis/*": [
+        "./src/apis/*"
+      ],
+      "@libs/*": [
+        "./src/libs/*"
+      ],
+      "@middlewares/*": [
+        "./src/middlewares/*"
+      ],
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "tests/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules/**/*",
+    ".serverless/**/*",
+    ".webpack/**/*",
+    "_warmup/**/*",
+    ".vscode/**/*",
+    "src/schemas/schemas.erd"
+  ]
+}
